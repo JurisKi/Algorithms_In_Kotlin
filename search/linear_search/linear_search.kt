@@ -1,5 +1,4 @@
-package algorithms
-
+//Linear search algorithm
 fun <T:Comparable<T>>linearSearch(list:List<T>, key:T):Int?{
     for ((index, value) in list.withIndex()) {
         if (value == key) return index
