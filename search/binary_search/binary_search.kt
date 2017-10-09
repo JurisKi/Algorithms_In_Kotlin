@@ -1,7 +1,8 @@
-package algorithms
+//binary search
 
 import java.util.*
 
+//the iterative version of binary search
 fun <T: Comparable<T>> binarySearch(list: List<T>, key: T): Int? {
     var rangeStart = 0
     var rangeEnd = list.count()
@@ -18,30 +19,12 @@ fun <T: Comparable<T>> binarySearch(list: List<T>, key: T): Int? {
     return null
 }
 
-fun <T: Comparable<T>> binarySearchRec(list: List<T>, key: T): Optional<Int> {
-    require(list == list.sorted())
+//test
+val numbers = listOf(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67)
+val numbersKey = 43
 
-    fun helper(start: Int, end: Int): Optional<Int> {
-        val mid: Int = start + (end - start) / 2
-        if (end < start) return Optional.empty()
-
-        if (key == list[mid]) {
-            return Optional.of(mid)
-        } else if (key < list[mid]) {
-            return helper(start, mid - 1)
-        } else {
-            return helper(mid + 1, end)
-        }
-    }
-
-    return helper(0, list.count())
-}
-
+//this will print out 6
 fun main(args: Array<String>) {
-    println("\nOrdered list:")
-    val ordered = listOf("Adam", "Clark", "John", "Tim", "Zack")
-    println(ordered)
-    val name = "John"
-    println("\n$name is in the position ${binarySearch(ordered, name)} in the ordered List.")
-    println("\n$name is in the position ${binarySearchRec(ordered, name)} in the ordered List.")
+    val position = binarySearch(numbers, numbersKey)
+    println(position)
 }
