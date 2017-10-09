@@ -7,11 +7,12 @@ fun <T:Comparable<T>>linearSearch(list:List<T>, key:T):Int?{
     return null
 }
 
+//Testing
+val list = listOf(5, 4, 7, 32, 2, 7)
+val key = 2
+
+//This will print out 4
 fun main(args: Array<String>) {
-    println("\nOrdered list:")
-    val ordered = listOf<String>("Adam", "Clark", "John", "Tim", "Zack")
-    println(ordered)
-    val name = "John"
-    val position = linearSearch(ordered, name)
-    println("\n${name} is in the position ${position} in the ordered List.")
+    val position = linearSearch(list, key)
+    println(position)
 }
